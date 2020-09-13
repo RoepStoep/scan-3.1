@@ -1184,7 +1184,8 @@ Score Search_Local::search(const Node & node, Score alpha, Score beta, Depth dep
 
    // pruning
 
-   if (local.prune
+   if (var::Variant != var::Losing
+    && local.prune
     && !local.pv_node
     && local.depth >= 3
     && score::is_eval(local.beta)

@@ -60,15 +60,15 @@ static int PST_B[Dense_Size]{ // for white, breakthrough variant
 
 static int PST_L[Dense_Size]{ // for white, losing variant
       +00,  +00,  +00,  +00,  +00,
-   -71,  +24,  +38,  +16,  +40,  
-      +05,  +30,  +20,  -06,  -70,
-   -15,  -06,  +13,   +8,  -05,  
-      +01,  +06,  +05,  -07,  -23,
-   -11,  -05,  +10,  +02,  -05,  
-       -8,  +07,   +8,  -01,  -17,
-   -23,  +04,  +17,   +8,   -7,  
-      -11,  +17,  +24,  +07,  -22,
-   -38,  +04,  +25,  +17,  -03,  
+   -113, -17,  -24,  -21,   +9,
+      +05,  +35,  -31,  +25, -186,
+   -32,  +16,  +06,  +16,  +15,
+       +9,  +07,  +18,  -13,  -26,
+   -11,  +18,  +27,  +24,  +10,
+      +01,  +20,  +19,  +16,  -03,
+   -18,  +26,  +26,  +17,  +20,
+      +13,  +25,  +37,  +32,  -15,
+   -20,  +02,  +25,  +11,  -03,
 };
 
 static int PST_F[Dense_Size]{ // for white, frisian variant
@@ -401,7 +401,7 @@ static Score eval_pst(const Pos & pos) {
 static int material(const Pos & pos, Side sd) {
    switch (var::Variant) {
    case var::BT:       return bit::count(pos.man(sd)) * 138;
-   case var::Losing:   return bit::count(pos.man(sd)) * 20 + bit::count(pos.king(sd)) * 68;
+   case var::Losing:   return bit::count(pos.man(sd)) * 5 + bit::count(pos.king(sd)) * -23;
    case var::Frisian:  return bit::count(pos.man(sd)) * 168 + bit::count(pos.king(sd)) * 423;
    case var::Normal:   return bit::count(pos.man(sd)) * 91  + bit::count(pos.king(sd)) * 238;
    default:            return bit::count(pos.man(sd)) * 100 + bit::count(pos.king(sd)) * 300;
